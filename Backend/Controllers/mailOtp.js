@@ -33,15 +33,15 @@ async function mailOtp(req, res) {
     html: msg
   }
 
-  transporter.sendMail(mailOption, async (error, info) => {
-    if (error) {
-      return res.status(400).json({ message: "Some error occured while sending otp." })
-    }
-    else {
-      const userExists = await otps.findOne({ email })
-      if (userExists) {
-        return res.status(400).json({ message: "Unable to send otp please wait a while and try again." })
-      } else {
+  const userExists=await otps.findOne({email})
+  if(userExists){
+    return res.status(400).json({ message: "Unable to send otp please wait a while and try again." })
+  }
+  else{
+    transporter.sendMail(mailOption,async (error,info)=>{
+      if (error) {
+        return res.status(400).json({ message: "Some error occured while sending otp." })
+      }else{
         const newotp = new otps({ email, emailOtp: OTP })
         const otpSent = await newotp.save()
         if (otpSent) {
@@ -49,10 +49,35 @@ async function mailOtp(req, res) {
         } else {
           return res.status(400).json({ message: "Error occured while storing otp." })
         }
-
       }
-    }
-  })
+    })
+    
+  }
+
+
+
+
+  // transporter.sendMail(mailOption, async (error, info) => {
+  //   if (error) {
+  //     return res.status(400).json({ message: "Some error occured while sending otp." })
+  //   }
+  //   else {
+  //     const userExists = await otps.findOne({ email })
+  //     if (userExists) {
+  //       return res.status(400).json({ message: "Unable to send otp please wait a while and try again." })
+  //     } else {
+        
+  //       const newotp = new otps({ email, emailOtp: OTP })
+  //       const otpSent = await newotp.save()
+  //       if (otpSent) {
+  //         return res.status(200).json({ message: "Otp has been sent sucessfully" })
+  //       } else {
+  //         return res.status(400).json({ message: "Error occured while storing otp." })
+  //       }
+
+  //     }
+  //   }
+  // })
 
 
 
