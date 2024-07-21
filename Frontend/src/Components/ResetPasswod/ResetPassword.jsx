@@ -25,7 +25,7 @@ function ResetPassword() {
     }
     console.log('in reset password');
     setLoding(true)
-    await axios.put('http://localhost:3000/resetpassword', { email, password, confirmPassword })
+    await axios.put('https://sign-in-backend-rose.vercel.app/resetpassword', { email, password, confirmPassword })
       .then(response => {
         setLoding(false)
         if (response.status == 200) {

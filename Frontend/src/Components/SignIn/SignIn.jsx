@@ -19,7 +19,7 @@ function SignIn() {
       return setMessage('Please enter both the fields')
     }
     setLoading(true)
-    await axios.get(`http://localhost:3000/login?email=${email}&password=${password}`)
+    await axios.get(`https://sign-in-backend-rose.vercel.app/login?email=${email}&password=${password}`)
       .then(response => {
         setLoading(false)
         if (response.status == 200) {

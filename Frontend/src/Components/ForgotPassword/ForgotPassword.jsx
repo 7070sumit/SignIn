@@ -31,7 +31,7 @@ function ForgotPassword() {
             return
         }
         setLoading(true)
-        await axios.get(`http://localhost:3000/checkmail?email=${email}`)
+        await axios.get(`https://sign-in-backend-rose.vercel.app/checkmail?email=${email}`)
             .then(response => {
                 setLoading(false)
                 if (response.status == 200) {
@@ -65,7 +65,7 @@ function ForgotPassword() {
             return setMessage('Please enter your email-address.')
         }
         setLoading(true)
-        await axios.post('http://localhost:3000/sendotp', { email })
+        await axios.post('https://sign-in-backend-rose.vercel.app/sendotp', { email })
             .then(response => {
                 setLoading(false)
                 if (response.status == 200) {
@@ -86,7 +86,7 @@ function ForgotPassword() {
     async function verifyOtp() {
         setMessage('')
         setLoading(true)
-        axios.get(`http://localhost:3000/verifyuser?email=${email}&otp=${otp}`)
+        axios.get(`https://sign-in-backend-rose.vercel.app/verifyuser?email=${email}&otp=${otp}`)
             .then(response => {
                 setLoading(false)
                 if (response.status == 200) {

@@ -24,7 +24,7 @@ function VerifyOtp() {
   async function checkUserInDatabase(){
     setMessage('')
     setLoading(true);
-    await axios.get(`http://localhost:3000/checkmail?email=${email}`)
+    await axios.get(`https://sign-in-backend-rose.vercel.app/checkmail?email=${email}`)
     .then(response=>{
       setDisableOtpButton(response.data.sucess)
       setMessage(response.data.message)
@@ -46,7 +46,7 @@ function VerifyOtp() {
   async function sendOtp() {
     setMessage('')
     setLoading(true);
-    await axios.post('http://localhost:3000/sendOtp', { email })
+    await axios.post('https://sign-in-backend-rose.vercel.app/sendOtp', { email })
       .then(response => {
         setOtpButton(false)
         setLoading(false);
@@ -64,7 +64,7 @@ function VerifyOtp() {
   async function verifyOtp() {
     setMessage('')
     setLoading(true);
-    await axios.get(`http://localhost:3000/verifyuser?email=${email}&otp=${otp}`)
+    await axios.get(`https://sign-in-backend-rose.vercel.app/verifyuser?email=${email}&otp=${otp}`)
       .then(response => {
         if (response.data.verified == true) {
           register();
@@ -86,7 +86,7 @@ function VerifyOtp() {
   async function register() {
     setMessage('')
     setLoading(true);
-    await axios.post('http://localhost:3000/signup', { userData })
+    await axios.post('https://sign-in-backend-rose.vercel.app/signup', { userData })
       .then(response => {
         setMessage(response.data.message)
         setLoading(false)
