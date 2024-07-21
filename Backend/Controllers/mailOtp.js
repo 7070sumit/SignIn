@@ -37,7 +37,7 @@ async function mailOtp(req, res) {
       <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Please enter this OTP to complete your registration.</p>
       <p style="font-size: 14px; color: #666; margin-bottom: 20px;">If you didn't request this OTP, please ignore this email.</p>
       <p style="font-size: 16px; margin-bottom: 20px;">Best regards,</p>
-      <p style="font-size: 16px; margin-bottom: 20px;">[Your Name/Company]</p>
+      <p style="font-size: 16px; margin-bottom: 20px;">Authenicator</p>
     </div>
   `
   }
