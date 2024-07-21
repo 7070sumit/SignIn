@@ -69,7 +69,7 @@ function ResetPassword() {
       {redirecting && (
         <div>
           <h1
-            className='mb-16 text-3xl font-semibold'
+            className='mb-16 text-3xl'
           >Enter your new Password.</h1>
           <ul
             className='flex flex-col items-center justify-center'>
@@ -97,7 +97,7 @@ function ResetPassword() {
             </li>
           </ul>
           <button
-            className='px-10 py-1 text-xl text-white rounded rounded-full bg-blue-500 hover:bg-blue-600 duration-100'
+            className='px-10 py-1 ml-16 text-xl text-white rounded rounded-full bg-blue-500 hover:bg-blue-600 duration-100'
             onClick={resetPassword}
           >
             {loading ? (

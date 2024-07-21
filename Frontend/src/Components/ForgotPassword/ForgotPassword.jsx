@@ -151,7 +151,7 @@ function ForgotPassword() {
                             )}</button>
                             <Link
                                 to='/signin'
-                                className='text-lg text-gray-500 font-semibold hover:text-gray-600 duration-100'
+                                className=' mt-8 text-center text-lg text-blue-500 font-semibold hover:text-blue-600 duration-100'
                             >
                                 Back to signin.
                             </Link>
