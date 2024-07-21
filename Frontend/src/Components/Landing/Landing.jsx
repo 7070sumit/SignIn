@@ -1,38 +1,54 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-function Landing() {
 
+
+
+
+
+const Landing = () => {
+
+  const navigate=useNavigate()
+  function handelSignIn(){
+    navigate('/signup')
+  }
+  
+  function handelSignUp(){
+    navigate('/signin')
+  }
 
   return (
-    <div
-    className='flex flex-col items-center justify-center'
-    >
-      <div className='-mt-5 w-full flex justify-end shadow-2xl rounded-full bg-transparent bg-gradient-to-r from-white to-orange-400'>
-        <Link
-          className='px-3 py-2 m-2 text-lg font-semibold text-white rounded rounded-full bg-green-600 hover:bg-green-500 hover:duration-300'
-          to='/signup'
-        >
-          <button>Register</button>
-        </Link>
-
-        <Link
-          className='px-3 py-2 m-2 bg-white text-lg font-semibold rounded rounded-full border border-gray-400 hover:bg-gray-400 hover:duration-300'
-          to='/signin'
-        >
-          <button
-          >Signin</button>
-        </Link>
-      </div>
-      <div
-      className='mt-20 w-60 h-60'
-      >
-        <img 
-        src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT3oZf-GEIysGo_GfQ_I6DYoifN4n8m9mURF9dtdsSoDN2XST7U" 
-        alt="Landing image" />
-      </div>
-      </div>
-  )
+    <div className="h-screen w-screen overflow-hidden bg-gray-50 flex flex-col items-center justify-center bg-gradient-to-b from-gray-100 to-gray-500">
+      <header className="w-full bg-white shadow-md fixed top-0">
+        <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
+          <div className="text-lg font-bold">LOGO</div>
+          <ul className="flex space-x-6">
+            <li><a href="#" className="text-gray-800 hover:text-blue-600">Home</a></li>
+            <li><a href="#" className="text-gray-800 hover:text-blue-600">Services</a></li>
+            <li><a href="#" className="text-gray-800 hover:text-blue-600">About</a></li>
+            <li><a href="#" className="text-gray-800 hover:text-blue-600">Blog</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main className="container mx-auto px-6 py-12 text-center">
+        <h1 className="text-4xl font-bold mb-4">SECURE YOUR ACCOUNT</h1>
+        <p 
+        className="text-gray-600 mb-8 font-semibold">
+        Protect your account with our easy-to-use two-factor authenticator.
+        </p>  
+      </main>
+      <section className="relative w-full h-64 flex items-center justify-center">
+      <button 
+      onClick={handelSignUp}
+      className="px-6 py-2 mr-10 bg-orange-500 text-white font-semibold border border-orange-500  rounded-full hover:bg-orange-600 shadow-md shadow-orange-100"
+      >SIGN IN</button>
+      <button 
+      onClick={handelSignIn}
+      className="px-6 py-2 bg-white text-black font-semibold rounded-full hover:bg-gray-200 border border-gray-300 shadow-md shadow-white "
+      >SIGN UP</button>
+      </section>
+    </div>
+  );
 }
 
-export default Landing
+export default Landing;

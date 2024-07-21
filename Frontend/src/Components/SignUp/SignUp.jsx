@@ -54,7 +54,7 @@ function SignUp() {
 
   return (
     <div className='flex items-center'>
-      <div className='p-5 m-2 rounded shadow-2xl max-w-fit flex flex-col items-start justify-start'>
+      <div className='p-5 m-2 ml-20 mt-10 rounded shadow-2xl max-w-fit flex flex-col items-start justify-start'>
         <h1
           className='mb-2 text-left text-xl font-semibold'
         >Create New Account</h1>
