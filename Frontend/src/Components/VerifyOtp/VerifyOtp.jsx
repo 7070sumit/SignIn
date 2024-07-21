@@ -161,13 +161,13 @@ function VerifyOtp() {
           {!disableOtpButton&&(
               <h1
               className='m-2 text-xl'
-            >Send otp to <span className='font-semibold'>{email.substring(0, 4) + '*****' + email.substring(email.indexOf('@'))} </span>for verification.</h1>
+            >Send otp to <span className='font-semibold'>{email} </span>for verification.</h1>
             )}
           {
             otpButton && (
-              <div>
+              <div className='flex items-center justify-center'>
                 <button
-                  className={`${disableOtpButton ? 'bg-gray-300 cursor-not-allowed px-10 mt-5 py-1 text-xl text-white rounded rounded-full' : 'px-10 mt-5 py-1 text-xl text-white rounded rounded-full bg-blue-500 '}`}
+                  className={`${disableOtpButton ? ' bg-gray-300 cursor-not-allowed px-10 mt-5 py-1 text-xl text-white rounded rounded-full' : 'px-10 mt-5 py-1 text-xl text-white rounded rounded-full bg-blue-500 '}`}
                   disabled={disableOtpButton}
                   onClick={sendOtp}
                 >{loading ? (
